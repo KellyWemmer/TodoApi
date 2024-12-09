@@ -2,6 +2,8 @@
 
 namespace TodoApi.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     //ControllerBase is a class that provides basic functionality for API controllers in ASP.NET Core
     //TodoItemsController is inheriting from ControllerBase
     public class TodoItemsController : ControllerBase
@@ -37,7 +39,8 @@ namespace TodoApi.Controllers
         public ActionResult<TodoItemModel> CreateTodoItem(TodoItemModel newTodoItem) 
         {
             //Generate a new Id based on the max in the list
-            newTodoItem.Id = _todoItems.Max(x => x.Id + 1);
+            //newTodoItem.Id = _todoItems.Max(x => x.Id + 1);
+            newTodoItem.Id = _todoItems.Any() ? _todoItems.Max(x => x.Id) + 1 : 1;
             _todoItems.Add(newTodoItem);
             //CreatedAction helps process the return of status 201(created)
             //nameof(Get) get's the item with the created Id
