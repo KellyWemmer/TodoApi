@@ -3,6 +3,23 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Ignore files with sensitive data
+appsettings.json
+appsettings.Development.json
+appsettings.*.json
+
+#Ignore environment variable files
+.env
+
+# Ignore Visual Studio files and folders
+.vs/
+.vscode/
+.idea/
+
+# Ignore build outputs
+bin/
+obj/
+
 # User-specific files
 *.rsuser
 *.suo
